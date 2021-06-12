@@ -2,8 +2,8 @@ ext {
     apply from: 'versions.gradle'
 
     kotlinLibs = [
-            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin",
-            serialization: "org.jetbrains.kotlinx:kotlinx-serialization-json:$version_kotlin_serialization"
+            kotlin    : "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin",
+            coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
     ]
 
     androidCoreLibs = [
@@ -43,7 +43,26 @@ ext {
             materialDesign        : "androidx.compose.material:material:$version_compose",
             materialDesignIcons   : "androidx.compose.material:material-icons-core:$version_compose",
             materialDesignIconsExt: "androidx.compose.material:material-icons-extended:$version_compose",
+            navigation            : "androidx.navigation:navigation-compose:$version_compose_navigation",
             toolingSupport        : "androidx.compose.ui:ui-tooling:$version_compose"
+    ]
+
+    cameraLibs = [
+            core      : "androidx.camera:camera-core:$version_camera_x",
+            camera    : "androidx.camera:camera-camera2:$version_camera_x",
+            lifecycle : "androidx.camera:camera-lifecycle:$version_camera_x",
+            view      : "androidx.camera:camera-view:$version_camera_x_ext",
+            extensions: "androidx.camera:camera-extensions:$version_camera_x_ext"
+    ]
+
+    hiltLibs = [
+            android  : "com.google.dagger:hilt-android:$version_dagger_hilt",
+            viewModel: "androidx.hilt:hilt-lifecycle-viewmodel:$version_dagger_hilt_ext"
+    ]
+
+    hiltKaptLibs = [
+            android : "com.google.dagger:hilt-android-compiler:$version_dagger_hilt",
+            compiler: "androidx.hilt:hilt-compiler:$version_dagger_hilt_ext"
     ]
 
     testLibs = [

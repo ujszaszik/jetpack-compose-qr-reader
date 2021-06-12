@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.firebase.crashlytics'
 }
 
@@ -52,11 +53,14 @@ dependencies {
     implementation androidCoreLibs.values()
     implementation navigationLibs.values()
     implementation composeLibs.values()
+    implementation cameraLibs.values()
+    implementation dataStoreLibs.values()
 
     implementation firebaseLibs.values()
     implementation platform("com.google.firebase:firebase-bom:$version_firebase")
 
-    implementation dataStoreLibs.values()
+    implementation hiltLibs.values()
+    kapt hiltKaptLibs.values()
 
     testImplementation testLibs.values()
     androidTestImplementation androidTestLibs.values()
