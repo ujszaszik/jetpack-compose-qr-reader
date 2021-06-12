@@ -1,0 +1,57 @@
+ext {
+    apply from: 'versions.gradle'
+
+    kotlinLibs = [
+            kotlin       : "org.jetbrains.kotlin:kotlin-stdlib:$version_kotlin",
+            serialization: "org.jetbrains.kotlinx:kotlinx-serialization-json:$version_kotlin_serialization"
+    ]
+
+    androidCoreLibs = [
+            appCompat         : "androidx.appcompat:appcompat:$version_app_compat",
+            core              : "androidx.core:core-ktx:$version_android_core",
+            constraintLayout  : "androidx.constraintlayout:constraintlayout:$version_constraint_layout",
+            legacySupport     : "androidx.legacy:legacy-support-v4:$version_legacy_support",
+            lifecycleViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle",
+            material          : "com.google.android.material:material:$version_material"
+    ]
+
+    navigationLibs = [
+            fragment: "androidx.navigation:navigation-fragment-ktx:$version_navigation",
+            ui      : "androidx.navigation:navigation-ui-ktx:$version_navigation"
+    ]
+
+    dataStoreLibs = [
+            dataStore: "androidx.datastore:datastore-preferences:$version_data_store",
+    ]
+
+    firebaseLibs = [
+            firebaseAnalytics  : 'com.google.firebase:firebase-analytics-ktx',
+            firebaseAuth       : 'com.google.firebase:firebase-auth-ktx',
+            firebaseCrashlytics: 'com.google.firebase:firebase-crashlytics-ktx',
+            firebaseKtx        : "com.google.firebase:firebase-database-ktx:$version_firebase_ktx",
+            firebaseStorage    : 'com.google.firebase:firebase-storage-ktx'
+    ]
+
+    composeLibs = [
+            animation             : "androidx.compose.animation:animation:$version_compose",
+            compuseUi             : "androidx.compose.ui:ui:$version_compose",
+            foundation            : "androidx.compose.foundation:foundation:$version_compose",
+            integrationActivity   : "androidx.activity:activity-compose:$version_compose_activity",
+            integrationViewModel  : "androidx.lifecycle:lifecycle-viewmodel-compose:$version_compose_viewmodel",
+            integrationLiveData   : "androidx.compose.runtime:runtime-livedata:$version_compose",
+            integrationRx         : "androidx.compose.runtime:runtime-rxjava2:$version_compose",
+            materialDesign        : "androidx.compose.material:material:$version_compose",
+            materialDesignIcons   : "androidx.compose.material:material-icons-core:$version_compose",
+            materialDesignIconsExt: "androidx.compose.material:material-icons-extended:$version_compose",
+            toolingSupport        : "androidx.compose.ui:ui-tooling:$version_compose"
+    ]
+
+    testLibs = [
+            jUnit: "junit:junit:$version_junit_test",
+    ]
+
+    androidTestLibs = [
+            jUnit   : "androidx.test.ext:junit:$version_junit_androidTest",
+            espresso: "androidx.test.espresso:espresso-core:$version_espresso"
+    ]
+}

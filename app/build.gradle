@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    compileSdk 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "hu.ujszaszik.qrreader"
+        minSdk 24
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+        useIR = true
+        freeCompilerArgs = ["-Xinline-classes"]
+    }
+    buildFeatures {
+        compose true
+    }
+    packagingOptions {
+        pickFirst 'META-INF/LICENSE.txt'
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion version_compose
+        kotlinCompilerVersion version_kotlin
+    }
+}
+
+dependencies {
+
+    implementation kotlinLibs.values()
+    implementation androidCoreLibs.values()
+    implementation navigationLibs.values()
+    implementation composeLibs.values()
+
+    implementation firebaseLibs.values()
+    implementation platform("com.google.firebase:firebase-bom:$version_firebase")
+
+    implementation dataStoreLibs.values()
+
+    testImplementation testLibs.values()
+    androidTestImplementation androidTestLibs.values()
+
+}
