@@ -23,6 +23,13 @@ object Dimens {
     val defaultButtonStrokeWidth = 2.dp
     val defaultButtonCornerRadius = 32.dp
 
+    // QR TARGET SQUARE
+    val targetSquareColor = Color.White
+    const val targetSquareSizePercent = 60F
+    const val targetSquareStrokeWidth = 8F
+    const val targetSquareCornerRadius = 40F
+    const val targetSquareCornerLength = 40F
+
     // IMAGE
     val cancelImageSize = 36.dp
 

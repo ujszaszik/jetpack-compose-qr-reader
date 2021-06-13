@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import hu.ujszaszik.qrreader.MainViewModel
 import hu.ujszaszik.qrreader.MainViewModel.PermissionAction.Granted
 import hu.ujszaszik.qrreader.menu.MenuScreen
-import hu.ujszaszik.qrreader.reader.QrReaderScreen
+import hu.ujszaszik.qrreader.reader.ui.QrReaderScreen
 
 @Composable
 fun NavGraph(navController: NavHostController, viewModel: MainViewModel) {
