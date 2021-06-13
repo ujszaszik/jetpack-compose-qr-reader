@@ -37,6 +37,9 @@ ext {
     version_dagger_hilt = "2.28-alpha"
     version_dagger_hilt_ext = "1.0.0-alpha01"
 
+    // QR READER
+    version_mlkit = '16.1.2'
+
     // TEST
     version_junit_test = '4.+'
     version_junit_androidTest = '1.1.2'

@@ -5,9 +5,11 @@ import androidx.camera.view.PreviewView
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.viewmodel.compose.viewModel
+import hu.ujszaszik.qrreader.reader.ReaderViewModel
 
 @Composable
-fun CameraPreview() {
+fun CameraPreview(viewModel: ReaderViewModel = viewModel()) {
     val lifecycleOwner = LocalLifecycleOwner.current
     AndroidView(
         factory = { context ->
@@ -15,7 +17,10 @@ fun CameraPreview() {
                 setSizeToMatchParent()
                 scaleType = PreviewView.ScaleType.FILL_CENTER
                 implementationMode = PreviewView.ImplementationMode.COMPATIBLE
-                CameraPreviewGenerator(context, lifecycleOwner).setupOnView(this)
+                CameraPreviewGenerator(context, lifecycleOwner)
+                    .doOnDetection { viewModel.onBarcodeDetected(it) }
+                    .doOnDetectionError { viewModel.onBarcodeError(it) }
+                    .setupOnView(this)
             }
         })
 }

@@ -65,6 +65,10 @@ ext {
             compiler: "androidx.hilt:hilt-compiler:$version_dagger_hilt_ext"
     ]
 
+    qrReaderLibs = [
+            mlKit: "com.google.mlkit:barcode-scanning:$version_mlkit"
+    ]
+
     testLibs = [
             jUnit: "junit:junit:$version_junit_test",
     ]

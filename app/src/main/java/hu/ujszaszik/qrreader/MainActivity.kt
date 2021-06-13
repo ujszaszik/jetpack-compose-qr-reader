@@ -7,22 +7,26 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import hu.ujszaszik.qrreader.MainViewModel.*
 import hu.ujszaszik.qrreader.MainViewModel.PermissionAction.*
 import hu.ujszaszik.qrreader.navigation.NavGraph
+import hu.ujszaszik.qrreader.navigation.navigateToMenu
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
 
+    private lateinit var navController: NavHostController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observePermissionAction()
         setContent {
-            val navController = rememberNavController()
+            navController = rememberNavController()
             NavGraph(navController, viewModel)
         }
     }
@@ -60,6 +64,11 @@ class MainActivity : ComponentActivity() {
 
     private fun isPermissionAlreadyGranted(): Boolean {
         return checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        navController.navigateToMenu()
     }
 
     companion object {

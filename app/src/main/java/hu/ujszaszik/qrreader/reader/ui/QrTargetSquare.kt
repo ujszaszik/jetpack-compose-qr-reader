@@ -1,4 +1,4 @@
-package hu.ujszaszik.qrreader.reader
+package hu.ujszaszik.qrreader.reader.ui
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
