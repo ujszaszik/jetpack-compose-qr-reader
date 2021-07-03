@@ -1,10 +1,9 @@
 package hu.ujszaszik.qrreader.camera
 
+import android.annotation.SuppressLint
 import android.content.Context
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.Preview
-import androidx.camera.core.UseCase
+import android.view.ScaleGestureDetector
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
@@ -29,6 +28,7 @@ class CameraPreviewGenerator(
                 val preview = createPreview(previewView)
                 val imageAnalyzer = createImageAnalysis(executor)
                 get().bindSafely(lifecycleOwner, preview, imageAnalyzer)
+                setPinchListener(previewView)
             }, executor)
         }
     }
@@ -56,6 +56,20 @@ class CameraPreviewGenerator(
         vararg useCases: UseCase
     ) {
         unbindAll()
-        bindToLifecycle(lifecycleOwner, CameraSelector.DEFAULT_BACK_CAMERA, *useCases)
+        CameraHolder.camera =
+            bindToLifecycle(lifecycleOwner, CameraSelector.DEFAULT_BACK_CAMERA, *useCases)
     }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setPinchListener(previewView: PreviewView) {
+        CameraHolder.camera?.let {
+            val pinchListener = PinchGestureListener(it)
+            val scaleGestureDetector = ScaleGestureDetector(context, pinchListener)
+            previewView.setOnTouchListener { _, event ->
+                scaleGestureDetector.onTouchEvent(event)
+                return@setOnTouchListener true
+            }
+        }
+    }
+
 }

@@ -9,7 +9,6 @@ import androidx.navigation.NavHostController
 import hu.ujszaszik.qrreader.camera.CameraPreview
 import hu.ujszaszik.qrreader.navigation.navigateToMenu
 import hu.ujszaszik.qrreader.navigation.navigateToQrResult
-import hu.ujszaszik.qrreader.reader.QrTargetSquare
 import hu.ujszaszik.qrreader.reader.ReaderViewModel
 import hu.ujszaszik.qrreader.resources.Dimens
 import hu.ujszaszik.qrreader.view.CancelImage
@@ -20,7 +19,7 @@ fun QrReaderScreen(navController: NavHostController, viewModel: ReaderViewModel 
     result.value?.let { navController.navigateToQrResult(it) }
 
     Box(modifier = Modifier.fillMaxSize()) {
-        CameraPreview()
+        CameraPreview(viewModel)
         QrTargetSquare(
             color = Dimens.targetSquareColor,
             sizePercent = Dimens.targetSquareSizePercent,

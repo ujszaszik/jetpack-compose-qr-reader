@@ -5,11 +5,10 @@ import androidx.camera.view.PreviewView
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.viewmodel.compose.viewModel
 import hu.ujszaszik.qrreader.reader.ReaderViewModel
 
 @Composable
-fun CameraPreview(viewModel: ReaderViewModel = viewModel()) {
+fun CameraPreview(viewModel: ReaderViewModel) {
     val lifecycleOwner = LocalLifecycleOwner.current
     AndroidView(
         factory = { context ->
