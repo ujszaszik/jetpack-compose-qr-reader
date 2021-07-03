@@ -12,6 +12,7 @@ import hu.ujszaszik.qrreader.navigation.navigateToQrResult
 import hu.ujszaszik.qrreader.reader.ReaderViewModel
 import hu.ujszaszik.qrreader.resources.Dimens
 import hu.ujszaszik.qrreader.view.CancelImage
+import hu.ujszaszik.qrreader.view.FlashImage
 
 @Composable
 fun QrReaderScreen(navController: NavHostController, viewModel: ReaderViewModel = viewModel()) {
@@ -27,6 +28,12 @@ fun QrReaderScreen(navController: NavHostController, viewModel: ReaderViewModel 
             cornerRadius = Dimens.targetSquareCornerRadius,
             cornerLength = Dimens.targetSquareCornerLength,
         )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(Dimens.marginDefault),
+            horizontalArrangement = Arrangement.Start
+        ) { FlashImage() }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
