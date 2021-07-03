@@ -25,7 +25,8 @@ object Dimens {
 
     // QR TARGET SQUARE
     val targetSquareColor = Color.White
-    const val targetSquareSizePercent = 60F
+    const val targetSquareSizePercentPortrait = 60F
+    const val targetSquareSizePercentLandscape = 30F
     const val targetSquareStrokeWidth = 8F
     const val targetSquareCornerRadius = 40F
     const val targetSquareCornerLength = 40F

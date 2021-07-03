@@ -23,7 +23,8 @@ fun QrReaderScreen(navController: NavHostController, viewModel: ReaderViewModel 
         CameraPreview(viewModel)
         QrTargetSquare(
             color = Dimens.targetSquareColor,
-            sizePercent = Dimens.targetSquareSizePercent,
+            sizePercentPortrait = Dimens.targetSquareSizePercentPortrait,
+            sizePercentLandscape = Dimens.targetSquareSizePercentLandscape,
             strokeWidth = Dimens.targetSquareStrokeWidth,
             cornerRadius = Dimens.targetSquareCornerRadius,
             cornerLength = Dimens.targetSquareCornerLength,

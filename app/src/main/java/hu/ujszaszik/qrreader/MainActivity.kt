@@ -14,6 +14,7 @@ import hu.ujszaszik.qrreader.MainViewModel.*
 import hu.ujszaszik.qrreader.MainViewModel.PermissionAction.*
 import hu.ujszaszik.qrreader.navigation.NavGraph
 import hu.ujszaszik.qrreader.navigation.navigateToMenu
+import hu.ujszaszik.qrreader.navigation.navigateToQrReader
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 if (it == CheckIfAlreadyGranted) {
                     if (isPermissionAlreadyGranted()) viewModel.onPermissionAction(Granted)
                     else requestCameraPermission()
-                }
+                } else if (it == Granted && this::navController.isInitialized) navController.navigateToQrReader()
             }
         }
     }
